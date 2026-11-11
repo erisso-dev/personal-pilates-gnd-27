@@ -103,12 +103,12 @@ main>.contacto:first-child{padding-top:clamp(150px,17vw,230px)}
 
 /* hero en anchos intermedios (tableta y ventanas estrechas): foto bajo el titular */
 @media (max-width:1100px){
-  .hero{padding-top:110px}
+  .hero{padding-top:130px;min-height:0;justify-content:flex-start}
   .hero h1{order:1;font-size:clamp(76px,15vw,170px)}
-  .hero-photo{position:relative;right:auto;bottom:auto;height:auto;width:min(100%,640px);margin:-12% auto -10%;order:2}
+  .hero-photo{position:relative;right:auto;bottom:auto;height:auto;width:min(100%,640px);max-width:100%;margin:-12% auto -10%;order:2}
   .hero-foot{order:3;grid-template-columns:1fr;background:var(--paper);margin-inline:calc(var(--pad)*-1);padding-inline:var(--pad);border-top:1px solid var(--ink)}
   .hero-line{top:22%;height:52%}
 }
 @media (max-width:860px){
-  .hero-photo{width:112%;margin:-16% -6% -14%}
+  .hero-photo{width:112%;max-width:112%;margin:-16% -6% -14%}
 }

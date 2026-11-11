@@ -39,7 +39,7 @@ nav .btn:hover{border-color:transparent}
 .hero h1 .voice{text-transform:none;font-size:.86em;line-height:.9;letter-spacing:-.035em;margin-top:-.02em}
 .hero-line{position:absolute;left:-2%;top:6%;width:104%;height:88%;z-index:0;pointer-events:none}
 .hero-line path{fill:none;stroke:var(--gold);stroke-width:9;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.hero-photo{position:absolute;right:calc(var(--pad) - 20px);bottom:-6%;height:min(80%,740px);aspect-ratio:1;z-index:3;mix-blend-mode:multiply;pointer-events:none}
+.hero-photo{position:absolute;right:calc(var(--pad) - 20px);bottom:-5%;width:min(50vw,760px);height:auto;max-width:none;aspect-ratio:1;object-fit:contain;z-index:3;mix-blend-mode:multiply;pointer-events:none}
 .hero-foot{position:relative;z-index:4;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:var(--pad);align-items:end;padding-block:28px 34px}
 .hero-foot p{max-width:38ch;font-size:18px}
 .hero-foot .cta{display:flex;gap:22px;align-items:center;margin-top:22px;flex-wrap:wrap}
