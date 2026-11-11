@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+const mods = Object.values(import.meta.glob('../*.md', { eager: true })) as any[];
+const posts = mods
+  .filter((m) => m.frontmatter.tipo === 'post')
+  .sort((a, b) => String(b.frontmatter.date).localeCompare(String(a.frontmatter.date)));
+const fecha = (d: string) => new Date(d).toLocaleDateString('es-ES', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+<Base title="Blog" description="Artículos y avisos de Personal Pilates Gandía.">
+  <section class="cab">
+    <h1 class="disp">Blog</h1>
+  </section>
+  <section class="posts">
+    {posts.map((p) => (
+      <a href={p.url.endsWith('/') ? p.url : p.url + '/'}>
+        <span class="label">{fecha(p.frontmatter.date)}</span>
+        <h2>{p.frontmatter.title}</h2>
+        <p>{p.frontmatter.description}</p>
+      </a>
+    ))}
+  </section>
+</Base>

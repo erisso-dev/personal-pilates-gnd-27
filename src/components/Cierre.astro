@@ -1,0 +1,24 @@
+---
+import { SITE } from '../config';
+import Formulario from './Formulario.astro';
+interface Props { principal?: boolean }
+const { principal = false } = Astro.props;
+const T = principal ? 'h1' : 'h2';
+---
+<section class="contacto dark" id="contacto" data-v>
+  <T class="disp rv">Decídete. <em>Da ese paso.</em></T>
+  <div class="c-grid">
+    <div class="rv">
+      <a class="big" href={SITE.telefonoHref}>{SITE.telefono}</a>
+      <address>
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a><br>
+        {SITE.direccion[0]}<br>{SITE.direccion[1]}
+      </address>
+    </div>
+    <Formulario />
+  </div>
+  <footer>
+    <span class="f-logo"><img src="/assets/mario-azara-logo-negativo.svg" alt="Mario Azara · Personal Pilates" width="300" height="106" loading="lazy">© {SITE.nombre}</span>
+    <span><a href="/eventos/">Eventos</a> · <a href="/blog/">Blog</a> · <a href="/aviso-legal/">Aviso legal</a> · <a href="/politica-de-privacidad/">Privacidad</a> · <a href="/politica-de-cookies/">Cookies</a></span>
+  </footer>
+</section>

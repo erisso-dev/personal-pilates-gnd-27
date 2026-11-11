@@ -1,0 +1,15 @@
+---
+import { FORM_ENDPOINT, SITE } from '../config';
+interface Props { asunto?: string; corto?: boolean; boton?: string }
+const { asunto = 'Contacto desde la web', corto = false, boton = 'Enviar' } = Astro.props;
+const action = FORM_ENDPOINT || `mailto:${SITE.email}?subject=${encodeURIComponent(asunto)}`;
+---
+<form class="rv" action={action} method="post" enctype={FORM_ENDPOINT ? undefined : 'text/plain'}>
+  <input type="hidden" name="Asunto" value={asunto}>
+  <label>Nombre<input name="Nombre" autocomplete="name" required></label>
+  {!corto && <label>Teléfono<input name="Telefono" type="tel" autocomplete="tel"></label>}
+  <label class={corto ? undefined : 'full'}>Email<input name="Email" type="email" autocomplete="email" required></label>
+  {!corto && <label class="full">¿Qué buscas?<textarea name="Mensaje" rows="3"></textarea></label>}
+  <label class="full check"><input type="checkbox" name="Privacidad" value="aceptada" required><span>He leído y acepto la <a href="/politica-de-privacidad/">política de privacidad</a>.</span></label>
+  <button class="btn" type="submit">{boton}</button>
+</form>

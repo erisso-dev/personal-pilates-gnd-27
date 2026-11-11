@@ -1,0 +1,114 @@
+/* Estilos añadidos al pasar de una sola página a un sitio completo */
+
+.skip{position:absolute;left:-999px;top:8px;z-index:50;background:var(--ink);color:var(--bone);padding:10px 16px;border-radius:999px}
+.skip:focus{left:12px}
+
+nav a[aria-current="page"]{border-color:var(--ink)}
+
+/* menú móvil */
+.menu{display:none;position:relative}
+.menu summary{list-style:none;cursor:pointer;font:500 15px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;border:1px solid var(--ink);border-radius:999px}
+.menu summary::-webkit-details-marker{display:none}
+.menu[open] summary{background:var(--ink);color:var(--bone)}
+.menu div{position:absolute;right:0;top:calc(100% + 10px);background:var(--ink);color:var(--bone);padding:10px 22px;min-width:230px;border-radius:14px;display:flex;flex-direction:column}
+.menu div a{font:300 30px/1 var(--disp);text-transform:uppercase;padding:13px 0;border-bottom:1px solid rgba(239,233,219,.2)}
+.menu div a:last-child{border:0}
+
+/* cabecera de páginas interiores */
+.cab{padding:clamp(150px,17vw,230px) var(--pad) clamp(40px,5vw,70px);border-bottom:1px solid var(--ink)}
+.cab h1{font-size:clamp(64px,12vw,200px)}
+.cab .label{margin-bottom:22px}
+.cab .label a{border-bottom:1px solid currentColor}
+.cab .intro{font:300 clamp(24px,2.8vw,40px)/1.15 var(--voice);font-style:italic;letter-spacing:-.015em;max-width:26ch;margin-top:30px}
+
+/* texto largo */
+.prosa{padding:clamp(50px,6vw,90px) var(--pad) clamp(70px,8vw,120px);max-width:calc(74ch + var(--pad)*2);font-size:19px;line-height:1.65}
+.prosa>*+*{margin-top:1.1em}
+.prosa h2,.prosa h3,.prosa h4{font:300 clamp(30px,3.4vw,46px)/1 var(--disp);text-transform:uppercase;margin-top:1.7em}
+.prosa h4{font-size:clamp(24px,2.4vw,32px)}
+.prosa ul,.prosa ol{padding-left:1.2em}
+.prosa li+li{margin-top:.45em}
+.prosa a{border-bottom:1px solid currentColor}
+.prosa a:hover{background:var(--gold)}
+.prosa img{margin-block:1.6em}
+.prosa strong{font-weight:500}
+.dos{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:var(--pad);padding:clamp(60px,8vw,120px) var(--pad);align-items:start}
+.dos h2{font-size:clamp(48px,7vw,110px)}
+.dos .prosa{padding:0;max-width:62ch}
+.dos.linea{border-top:1px solid var(--ink)}
+.dark .prosa a:hover{color:var(--ink)}
+
+/* listas con filete */
+.lista{list-style:none;padding:0}
+.lista li{border-top:1px solid rgba(32,31,15,.25);padding:13px 0}
+.lista li:last-child{border-bottom:1px solid rgba(32,31,15,.25)}
+.dark .lista li{border-color:rgba(239,233,219,.22)}
+
+/* preguntas frecuentes */
+.faq{padding:clamp(60px,8vw,120px) var(--pad)}
+.faq h2{font-size:clamp(48px,7vw,110px);margin-bottom:40px}
+.faq details{border-top:1px solid var(--ink)}
+.faq details:last-child{border-bottom:1px solid var(--ink)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:24px 0;font:300 clamp(26px,3vw,44px)/1.05 var(--disp);text-transform:uppercase}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:200;font-size:1.3em;line-height:.6}
+.faq details[open] summary::after{content:"–"}
+.faq details div{max-width:68ch;padding:0 0 30px;color:#3d3b28}
+.faq details p+p{margin-top:.9em}
+
+/* enlaces de continuación */
+.mas{display:inline-block;margin-top:30px;font:500 15px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:5px}
+.mas:hover{color:var(--gold)}
+.prog .mas:hover,.cab .mas:hover{color:inherit;background:var(--gold)}
+
+/* blog */
+.posts{padding:0 var(--pad) clamp(70px,8vw,120px)}
+.posts a{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,5fr) minmax(0,4fr);gap:var(--pad);align-items:baseline;border-bottom:1px solid var(--ink);padding:30px 0;transition:background .25s,padding .25s}
+.posts a:hover{background:var(--paper-2);padding-inline:18px}
+.posts h2{font:300 clamp(32px,4vw,60px)/.95 var(--disp);text-transform:uppercase}
+.posts p{color:#3d3b28}
+
+/* formulario: consentimiento */
+form .check{display:flex;gap:12px;align-items:flex-start;text-transform:none;letter-spacing:0;font:400 15px/1.4 var(--text)}
+form .check input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--gold)}
+form .check a{border-bottom:1px solid currentColor}
+.guia form label{color:var(--ink)}
+.guia form input{border-color:rgba(32,31,15,.5);color:var(--ink)}
+.guia form input:focus{border-color:var(--ink)}
+.guia form .check input{accent-color:var(--ink)}
+.guia-p{min-height:var(--H);padding-top:clamp(150px,17vw,220px)}
+.guia-p h1{font-size:clamp(60px,10vw,170px);margin:18px 0 26px}
+
+.vacio{padding:clamp(60px,8vw,120px) var(--pad);max-width:60ch}
+.vacio p{font:300 clamp(26px,3vw,40px)/1.15 var(--voice);font-style:italic}
+
+@media (max-width:860px){
+  header nav{display:none}
+  .menu{display:block}
+  .dos{grid-template-columns:1fr}
+  .posts a{grid-template-columns:1fr;gap:10px}
+  .posts a:hover{padding-inline:0;background:none}
+}
+
+/* cabecera sobre fondo oscuro */
+.h-osc nav a,.h-osc .menu summary{color:var(--bone)}
+.h-osc nav a:hover,.h-osc nav a[aria-current="page"]{border-color:var(--bone)}
+.h-osc nav .btn{background:var(--gold);color:var(--ink)}
+.h-osc .menu summary{border-color:var(--bone)}
+.h-osc .menu[open] summary{background:var(--bone);color:var(--ink)}
+.h-osc .menu div{background:var(--bone);color:var(--ink)}
+.h-osc .menu div a{border-color:rgba(32,31,15,.2)}
+main>.contacto:first-child{padding-top:clamp(150px,17vw,230px)}
+.guia-p{margin-top:102px;padding-top:clamp(50px,6vw,90px);min-height:0}
+
+/* hero en anchos intermedios (tableta y ventanas estrechas): foto bajo el titular */
+@media (max-width:1100px){
+  .hero{padding-top:110px}
+  .hero h1{order:1;font-size:clamp(76px,15vw,170px)}
+  .hero-photo{position:relative;right:auto;bottom:auto;height:auto;width:min(100%,640px);margin:-12% auto -10%;order:2}
+  .hero-foot{order:3;grid-template-columns:1fr;background:var(--paper);margin-inline:calc(var(--pad)*-1);padding-inline:var(--pad);border-top:1px solid var(--ink)}
+  .hero-line{top:22%;height:52%}
+}
+@media (max-width:860px){
+  .hero-photo{width:112%;margin:-16% -6% -14%}
+}

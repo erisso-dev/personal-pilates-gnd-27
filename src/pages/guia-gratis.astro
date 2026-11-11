@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import Formulario from '../components/Formulario.astro';
+---
+<Base title="Guía gratis: Entendiendo tu columna" description="Tu primera guía para iniciarte en el Pilates y tener una columna más flexible.">
+  <section class="guia guia-p">
+    <div>
+      <p class="label">Guía gratis · Tu primera guía para iniciarte en el Pilates</p>
+      <h1 class="disp">Entendiendo tu columna</h1>
+      <ul>
+        <li>Reconoce las diferentes partes de la columna y cómo se comportan.</li>
+        <li>Mejora tu respiración consciente.</li>
+        <li>Gana control sobre la musculatura abdominal.</li>
+        <li>Conoce mejor tu cuerpo: cuáles son tus fortalezas y cuáles tus puntos a mejorar.</li>
+      </ul>
+      <Formulario asunto="Quiero la guía Entendiendo tu columna" corto boton="Sí, quiero la guía" />
+    </div>
+    <img class="espalda" src="/assets/espalda-columna.webp" alt="Persona de espaldas articulando la columna hacia delante">
+  </section>
+</Base>

@@ -1,0 +1,18 @@
+---
+import Base from './Base.astro';
+const { frontmatter } = Astro.props;
+const fecha = new Date(frontmatter.date).toLocaleDateString('es-ES', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+---
+<Base title={frontmatter.title} description={frontmatter.description} image={frontmatter.image}>
+  <section class="cab">
+    <p class="label"><a href="/blog/">Blog</a> · <time datetime={String(frontmatter.date).slice(0, 10)}>{fecha}</time></p>
+    <h1 class="disp">{frontmatter.title}</h1>
+  </section>
+  {frontmatter.image && <figure class="banda"><img src={frontmatter.image} alt=""></figure>}
+  <article class="prosa"><slot /></article>
+</Base>

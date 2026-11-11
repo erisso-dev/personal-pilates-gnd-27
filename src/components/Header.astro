@@ -1,0 +1,28 @@
+---
+const links = [
+  { href: '/servicios/', t: 'Servicios' },
+  { href: '/sobre-mi/', t: 'Sobre mí' },
+  { href: '/guia-gratis/', t: 'Guía gratis' },
+  { href: '/blog/', t: 'Blog' },
+];
+const here = Astro.url.pathname;
+interface Props { oscura?: boolean }
+const { oscura = false } = Astro.props;
+const logo = oscura ? '/assets/mario-azara-logo-negativo.svg' : '/assets/mario-azara-logo.svg';
+---
+<header class={oscura ? "h-osc" : undefined}>
+  <a href="/" aria-label="Mario Azara · Personal Pilates, inicio"><img src={logo} alt="Mario Azara · Personal Pilates" width="300" height="106"></a>
+  <nav aria-label="Principal">
+    {links.map((l) => <a href={l.href} aria-current={here === l.href ? 'page' : undefined}>{l.t}</a>)}
+    <a class="btn" href="/contacto/">Reserva tu clase</a>
+  </nav>
+  <details class="menu">
+    <summary>Menú</summary>
+    <div>
+      <a href="/">Inicio</a>
+      {links.map((l) => <a href={l.href}>{l.t}</a>)}
+      <a href="/eventos/">Eventos</a>
+      <a href="/contacto/">Contacto</a>
+    </div>
+  </details>
+</header>

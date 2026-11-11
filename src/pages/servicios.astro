@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import Testimonios from '../components/Testimonios.astro';
+import faq from '../data/faq.json';
+
+const formatos = [
+  { n: 'Pilates Estudio 8', d: 'Clases con los aparatos originales de Pilates, que te asisten y te desafían en cada ejercicio.', puntos: 8, e: 'Máximo 8 alumnos' },
+  { n: 'Pilates Estudio 5', d: 'Los mismos aparatos con una atención más personalizada. La evolución es más rápida y hay más control del profesor al corregir.', puntos: 5, e: 'Grupo reducido' },
+  { n: 'Semi-privadas', d: 'Dos alumnos. Clases muy personalizadas en las que estás acompañado por el profesor en todo momento.', puntos: 2, e: '2 alumnos' },
+  { n: 'Privadas', d: 'La clase entera gira en torno a ti: los principios del método, adaptados a tus necesidades individuales.', puntos: 1, e: 'Tú y tu profesor' },
+];
+---
+<Base title="Servicios" description="Pilates con aparatos en Gandía: grupos de 8 o 5 alumnos, clases semi-privadas y privadas, Pilates Kids y neuromecánica aplicada al Pilates.">
+  <section class="cab">
+    <p class="label">Servicios</p>
+    <h1 class="disp">Entrenamiento para tu calidad de vida</h1>
+    <p class="intro">En Personal Pilates te damos tu «dosis» de movimiento.</p>
+  </section>
+
+  <section class="dos">
+    <h2 class="disp rv">¿Te suena?</h2>
+    <ul class="lista rv">
+      <li>Quieres moverte para no sentirte tan entumecido.</li>
+      <li>Buscas aumentar tus niveles de actividad física.</li>
+      <li>No puedes acudir a un centro donde los grupos son numerosos y no atienden tus necesidades personales.</li>
+      <li>Buscas trabajar tu flexibilidad y aumentar tu tono muscular.</li>
+      <li>Buscas una mejor forma física para afrontar tu día a día.</li>
+      <li>Buscas un complemento a tu deporte para organizar mejor tu sistema muscular.</li>
+    </ul>
+  </section>
+
+  <figure class="banda"><img src="/assets/torre-luz.webp" alt="Estudio de Pilates con reformer y torre de muelles a la luz de la mañana" loading="lazy"></figure>
+
+  <section class="prog" id="programas">
+    <div class="prog-head">
+      <h2 class="disp rv">Elige tu formato</h2>
+      <p class="rv">Programamos tus clases en un horario fijo y con un grupo lo más homogéneo posible. Buscamos el horario que mejor se te acople, porque sin una asistencia regular es imposible disfrutar de los beneficios del Pilates.</p>
+    </div>
+    {formatos.map((f) => (
+      <article class="row rv">
+        <h3>{f.n}</h3>
+        <p>{f.d}</p>
+        <div class="dots">
+          {Array.from({ length: f.puntos }).map(() => <i />)}<i class="p" />
+          <span>{f.e}</span>
+        </div>
+      </article>
+    ))}
+    <div class="extra">
+      <div class="rv"><p class="label">Para niños</p><h3>Pilates Kids</h3><p>Clases dirigidas a niños para aprender a moverse mejor y, sobre todo, para que su desarrollo muscular sea equilibrado.</p></div>
+      <div class="rv"><p class="label">Cerebro y músculo</p><h3>Neuromecánica</h3><p>Somos unos entusiastas de cómo el cerebro influye en nuestro sistema muscular. Buscamos mejorar la conexión del cerebro con tu cuerpo y saber así qué rutinas son las más adecuadas. <a class="mas" href="/la-neuromecanica-en-mi-pilates/">Leer más</a></p></div>
+    </div>
+  </section>
+
+  <section class="dos dark">
+    <h2 class="disp rv">Lo que vas a notar</h2>
+    <div class="prosa rv">
+      <ul class="lista">
+        <li>Necesitarás menos esfuerzo para moverte mejor.</li>
+        <li>Despertarás los músculos que te proporcionan una mejor postura.</li>
+        <li>Activarás el motor de tu cuerpo y tendrás más energía.</li>
+      </ul>
+      <h3>Si el Pilates va a ser tu única actividad física</h3>
+      <ul class="lista">
+        <li>Aprenderás a controlar mejor tu cuerpo e identificarás las tensiones negativas.</li>
+        <li>Mejorarás tu capacidad respiratoria.</li>
+        <li>Flexibilizarás la musculatura acortada.</li>
+        <li>Fortalecerás la musculatura profunda, muy importante para una mejor actitud postural.</li>
+      </ul>
+      <h3>Si lo quieres como complemento a tu deporte</h3>
+      <ul class="lista">
+        <li>Entenderás qué tensiones debes evitar, al coordinar y disociar mejor unos movimientos de otros.</li>
+        <li>Ganarás estabilidad en las articulaciones, fruto del trabajo de la musculatura profunda.</li>
+        <li>Ganarás rango de movimiento, vital para evitar lesiones.</li>
+      </ul>
+    </div>
+  </section>
+
+  <Testimonios />
+
+  <section class="faq">
+    <h2 class="disp rv">Preguntas frecuentes</h2>
+    {faq.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <div>{f.a.map((p) => <p>{p}</p>)}</div>
+      </details>
+    ))}
+  </section>
+</Base>

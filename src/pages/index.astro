@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import Testimonios from '../components/Testimonios.astro';
+import home from '../partials/home.html?raw';
+const [antes, despues] = home.split('<!--TESTIMONIOS-->');
+---
+<Base>
+  <Fragment set:html={antes} />
+  <Testimonios />
+  <Fragment set:html={despues} />
+</Base>

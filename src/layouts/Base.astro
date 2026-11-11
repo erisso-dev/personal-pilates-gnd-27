@@ -1,0 +1,104 @@
+---
+import '@fontsource/barlow-condensed/200.css';
+import '@fontsource/barlow-condensed/300.css';
+import '@fontsource/barlow-condensed/500.css';
+import '@fontsource/barlow/400.css';
+import '@fontsource/barlow/500.css';
+import '@fontsource/newsreader/300-italic.css';
+import '@fontsource/newsreader/400-italic.css';
+import '../styles/global.css';
+import '../styles/paginas.css';
+import Header from '../components/Header.astro';
+import Cierre from '../components/Cierre.astro';
+import { SITE } from '../config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  cierre?: boolean;
+  cierrePrincipal?: boolean;
+  cabeceraOscura?: boolean;
+}
+const {
+  title,
+  description = 'Pilates de estudio con aparatos en Gandía. Grupos de 8, 5, 2 o clases privadas con Mario Azara. Tu calidad de vida es entrenable.',
+  image = '/assets/og.jpg',
+  cierre = true,
+  cierrePrincipal = false,
+  cabeceraOscura = false,
+} = Astro.props;
+const fullTitle = title ? `${title} · ${SITE.nombre}` : `${SITE.nombre} · ${SITE.titular}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'ExerciseGym',
+  name: SITE.nombre,
+  url: Astro.site,
+  telephone: '+34611430218',
+  email: SITE.email,
+  image: new URL('/assets/og.jpg', Astro.site),
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'C/ Rinconada Leandro Calvo, 2, entresuelo',
+    postalCode: '46701',
+    addressLocality: 'Gandía',
+    addressRegion: 'Valencia',
+    addressCountry: 'ES',
+  },
+};
+---
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{fullTitle}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={canonical}>
+<link rel="icon" href="/favicon.png">
+<link rel="sitemap" href="/sitemap-index.xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content={SITE.nombre}>
+<meta property="og:title" content={fullTitle}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonical}>
+<meta property="og:image" content={new URL(image, Astro.site)}>
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<Header oscura={cabeceraOscura} />
+<div class="col" aria-hidden="true"></div>
+<main id="contenido">
+  <slot />
+  {cierre && <Cierre principal={cierrePrincipal} />}
+</main>
+<script is:inline>
+(function(){
+  var root=document.documentElement;
+  if(/[?&]static/.test(location.search)) root.classList.add('static');
+  var col=document.querySelector('.col'),secs=[].slice.call(document.querySelectorAll('[data-v]'));
+  if(secs.length>2) secs.forEach(function(sec,i){
+    var a=document.createElement('a');a.href='#'+sec.id;a.style.width=(16+i*3)+'px';col.appendChild(a);
+  });
+  var links=col.children, els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){
+        var k=secs.indexOf(e.target);
+        for(var j=0;j<links.length;j++) links[j].classList.toggle('on',j===k);
+      }});
+    },{rootMargin:'-50% 0px -50% 0px'});
+    secs.forEach(function(sec){ io.observe(sec); });
+    var rv=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rv.unobserve(e.target);} });
+    },{threshold:.08});
+    els.forEach(function(el,i){ el.style.transitionDelay=(i%4*70)+'ms'; rv.observe(el); });
+  } else { els.forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+</body>
+</html>
