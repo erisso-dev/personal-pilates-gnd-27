@@ -112,3 +112,5 @@ main>.contacto:first-child{padding-top:clamp(150px,17vw,230px)}
 @media (max-width:860px){
   .hero-photo{width:112%;max-width:112%;margin:-16% -6% -14%}
 }
+
+.prog .row:last-child{border-bottom:1px solid var(--ink)}

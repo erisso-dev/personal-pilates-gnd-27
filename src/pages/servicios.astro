@@ -3,14 +3,12 @@ import Base from '../layouts/Base.astro';
 import Testimonios from '../components/Testimonios.astro';
 import faq from '../data/faq.json';
 
-const formatos = [
-  { n: 'Pilates Estudio 8', d: 'Clases con los aparatos originales de Pilates, que te asisten y te desafían en cada ejercicio.', puntos: 8, e: 'Máximo 8 alumnos' },
-  { n: 'Pilates Estudio 5', d: 'Los mismos aparatos con una atención más personalizada. La evolución es más rápida y hay más control del profesor al corregir.', puntos: 5, e: 'Grupo reducido' },
-  { n: 'Semi-privadas', d: 'Dos alumnos. Clases muy personalizadas en las que estás acompañado por el profesor en todo momento.', puntos: 2, e: '2 alumnos' },
-  { n: 'Privadas', d: 'La clase entera gira en torno a ti: los principios del método, adaptados a tus necesidades individuales.', puntos: 1, e: 'Tú y tu profesor' },
+const salas = [
+  { n: 'Sala Torres', d: 'Clases con la torre de muelles, que te asiste y te desafía en cada ejercicio.' },
+  { n: 'Sala Reformers', d: 'Clases sobre el reformer, la máquina de carro deslizante y muelles del método Pilates.' },
 ];
 ---
-<Base title="Servicios" description="Pilates con aparatos en Gandía: grupos de 8 o 5 alumnos, clases semi-privadas y privadas, Pilates Kids y neuromecánica aplicada al Pilates.">
+<Base title="Servicios" description="Pilates con aparatos en Gandía: clases en dos salas, Torres y Reformers, siempre en grupos de 6.">
   <section class="cab">
     <p class="label">Servicios</p>
     <h1 class="disp">Entrenamiento para tu calidad de vida</h1>
@@ -33,23 +31,19 @@ const formatos = [
 
   <section class="prog" id="programas">
     <div class="prog-head">
-      <h2 class="disp rv">Elige tu formato</h2>
+      <h2 class="disp rv">Dos salas, grupos de 6</h2>
       <p class="rv">Programamos tus clases en un horario fijo y con un grupo lo más homogéneo posible. Buscamos el horario que mejor se te acople, porque sin una asistencia regular es imposible disfrutar de los beneficios del Pilates.</p>
     </div>
-    {formatos.map((f) => (
+    {salas.map((f) => (
       <article class="row rv">
         <h3>{f.n}</h3>
         <p>{f.d}</p>
         <div class="dots">
-          {Array.from({ length: f.puntos }).map(() => <i />)}<i class="p" />
-          <span>{f.e}</span>
+          {Array.from({ length: 6 }).map(() => <i />)}<i class="p" />
+          <span>Grupos de 6</span>
         </div>
       </article>
     ))}
-    <div class="extra">
-      <div class="rv"><p class="label">Para niños</p><h3>Pilates Kids</h3><p>Clases dirigidas a niños para aprender a moverse mejor y, sobre todo, para que su desarrollo muscular sea equilibrado.</p></div>
-      <div class="rv"><p class="label">Cerebro y músculo</p><h3>Neuromecánica</h3><p>Somos unos entusiastas de cómo el cerebro influye en nuestro sistema muscular. Buscamos mejorar la conexión del cerebro con tu cuerpo y saber así qué rutinas son las más adecuadas. <a class="mas" href="/la-neuromecanica-en-mi-pilates/">Leer más</a></p></div>
-    </div>
   </section>
 
   <section class="dos dark">
