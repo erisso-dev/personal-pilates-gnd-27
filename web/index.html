@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal Pilates Gandía · Mario Azara</title>
+<meta name="description" content="Pilates de estudio con aparatos en Gandía. Grupos de 8, 5, 2 o clases privadas con Mario Azara. Tu calidad de vida es entrenable.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;500&family=Barlow:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#201F0F; --gold:#F0AF00; --paper:#F3EEE3; --paper-2:#E8E0CF; --bone:#EFE9DB;
+  --mute:#6B6853; --mute-ink:#A39E86;
+  --H:100svh;
+  --pad:clamp(20px,4.2vw,64px);
+  --disp:"Barlow Condensed",system-ui,sans-serif;
+  --text:"Barlow",system-ui,sans-serif;
+  --voice:"Newsreader",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{padding-inline:var(--pad)}
+.disp{font-family:var(--disp);font-weight:300;text-transform:uppercase;line-height:.84;letter-spacing:-.01em}
+.voice{font-family:var(--voice);font-style:italic;font-weight:300}
+.label{font:500 14px/1 var(--disp);letter-spacing:.16em;text-transform:uppercase;color:#4d4a36}
+.dark{background:var(--ink);color:var(--bone)}
+.dark .label{color:#c2bca6}
+
+/* ---------- header ---------- */
+header{position:absolute;inset:0 0 auto 0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:22px var(--pad)}
+header img{height:58px;width:auto}
+nav{display:flex;gap:clamp(16px,2.4vw,36px);align-items:center;font:500 15px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase}
+nav a{padding:8px 0;border-bottom:1px solid transparent;transition:border-color .2s}
+nav a:hover{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bone);padding:15px 22px;border-radius:999px;font:500 15px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;border:0;cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:var(--gold);color:var(--ink)}
+.dark .btn{background:var(--gold);color:var(--ink)}
+.dark .btn:hover{background:var(--bone)}
+nav .btn{padding:12px 18px}
+nav .btn:hover{border-color:transparent}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:var(--H);display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--pad) 0;overflow:hidden}
+.hero h1{position:relative;z-index:1;font-size:clamp(76px,13.2vw,230px)}
+.hero h1 span{display:block}
+.hero h1 .voice{text-transform:none;font-size:.86em;line-height:.9;letter-spacing:-.035em;margin-top:-.02em}
+.hero-line{position:absolute;left:-2%;top:6%;width:104%;height:88%;z-index:0;pointer-events:none}
+.hero-line path{fill:none;stroke:var(--gold);stroke-width:9;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.hero-photo{position:absolute;right:calc(var(--pad) - 20px);bottom:-6%;height:min(80%,740px);aspect-ratio:1;z-index:3;mix-blend-mode:multiply;pointer-events:none}
+.hero-foot{position:relative;z-index:4;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:var(--pad);align-items:end;padding-block:28px 34px}
+.hero-foot p{max-width:38ch;font-size:18px}
+.hero-foot .cta{display:flex;gap:22px;align-items:center;margin-top:22px;flex-wrap:wrap}
+.tel{font:300 30px/1 var(--disp);letter-spacing:.04em;border-bottom:1px solid currentColor;padding-bottom:3px}
+
+/* ---------- para quién ---------- */
+.para{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr);gap:0;border-top:1px solid var(--ink)}
+.para-list{padding:clamp(48px,7vw,110px) var(--pad)}
+.para-list .label{margin-bottom:34px}
+.para-list ul{padding:0}
+.para-list li{list-style:none;display:flex;align-items:baseline;gap:.28em;border-bottom:1px solid rgba(32,31,15,.18);padding:.12em 0 .16em;font-size:clamp(44px,6.6vw,108px)}
+.para-list li:first-of-type{border-top:1px solid rgba(32,31,15,.18)}
+.para-list li small{font:400 15px/1.3 var(--text);text-transform:none;letter-spacing:0;color:var(--mute);margin-left:auto;text-align:right;max-width:20ch;align-self:center}
+.para-list li em{font-style:normal}
+.para-img{position:relative;min-height:520px;overflow:hidden}
+.para-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+
+/* ---------- 10 20 30 ---------- */
+.diez{padding:clamp(70px,9vw,150px) var(--pad)}
+.diez-grid{display:grid;grid-template-columns:3fr 4fr 6fr;align-items:end;margin-top:40px}
+.diez-grid div{border-left:1px solid rgba(239,233,219,.22);padding:0 0 6px clamp(14px,2vw,30px)}
+.diez-grid b{display:block;font:200 clamp(70px,13vw,210px)/.78 var(--disp);letter-spacing:-.03em}
+.diez-grid div:nth-child(2) b{font-size:clamp(100px,20vw,320px)}
+.diez-grid div:nth-child(3) b{font-size:clamp(150px,33vw,540px);font-weight:300}
+.diez-grid div:last-child b{color:var(--gold)}
+.diez-grid p{font:300 clamp(22px,2.6vw,40px)/1.1 var(--voice);font-style:italic;margin-top:22px;max-width:14ch}
+.diez cite{display:block;margin-top:52px;font-style:normal}
+
+/* ---------- programas ---------- */
+.prog{padding:clamp(70px,9vw,140px) var(--pad) clamp(60px,7vw,100px)}
+.prog-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr);gap:var(--pad);align-items:end;margin-bottom:56px}
+.prog-head h2{font-size:clamp(60px,10vw,170px)}
+.prog-head p{max-width:44ch}
+.row{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,4fr) minmax(0,2fr);gap:var(--pad);align-items:center;border-top:1px solid var(--ink);padding:26px 0;transition:background .25s,padding .25s}
+.row+.extra{border-top:1px solid var(--ink);padding-top:40px;margin-top:0}
+.row:hover{background:var(--paper-2);padding-inline:18px}
+.row h3{font:300 clamp(34px,4.4vw,68px)/.92 var(--disp);text-transform:uppercase}
+.row p{color:#3d3b28;max-width:52ch}
+.dots{display:flex;gap:7px;justify-content:flex-end;flex-wrap:wrap;align-items:center}
+.dots i{width:15px;height:15px;border-radius:50%;background:var(--ink)}
+.dots i.p{background:var(--gold)}
+.dots span{font:500 14px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;color:#4d4a36;flex-basis:100%;text-align:right;margin-top:8px}
+.extra{display:grid;grid-template-columns:1fr 1fr;gap:var(--pad);margin-top:56px}
+.extra h3{font:300 clamp(34px,4.4vw,68px)/.92 var(--disp);text-transform:uppercase;margin:14px 0 12px}
+.extra p:last-child{max-width:44ch;color:#3d3b28}
+.niv-t{margin-top:clamp(60px,7vw,100px);padding-top:20px;border-top:1px solid var(--ink)}
+.niveles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--pad);margin-top:30px}
+.niveles h3{font:300 clamp(34px,4vw,60px)/.95 var(--disp);text-transform:uppercase;margin:14px 0 12px}
+.niveles p{color:#3d3b28;max-width:36ch}
+
+/* ---------- mario ---------- */
+.mario{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:0}
+.mario-img{position:relative;min-height:720px;overflow:hidden}
+.mario-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.22);transform-origin:48% 48%;filter:grayscale(1) contrast(1.08)}
+.mario-txt{padding:clamp(60px,8vw,130px) var(--pad)}
+.mario-txt h2{font-size:clamp(60px,9vw,150px);margin:18px 0 34px}
+.mario-txt blockquote{font:300 clamp(28px,3.3vw,50px)/1.12 var(--voice);font-style:italic;letter-spacing:-.02em;max-width:19ch;margin-bottom:40px}
+.mario-txt blockquote::after{content:"";display:block;width:120px;height:4px;border-radius:4px;background:var(--gold);margin-top:26px}
+.mario-txt>p{max-width:54ch;color:#cfc9b6;margin-bottom:16px}
+.tl{margin-top:44px;border-top:1px solid rgba(239,233,219,.22)}
+.tl div{display:grid;grid-template-columns:110px 1fr;gap:20px;align-items:baseline;border-bottom:1px solid rgba(239,233,219,.22);padding:14px 0}
+.tl b{font:200 44px/1 var(--disp)}
+.tl span{color:#cfc9b6}
+
+/* ---------- voces ---------- */
+.voces{padding:clamp(70px,9vw,140px) 0 clamp(60px,7vw,110px)}
+.voces .label{padding-inline:var(--pad)}
+.track{display:flex;gap:clamp(28px,4vw,64px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding:36px var(--pad) 20px;scrollbar-width:thin;scrollbar-color:var(--ink) transparent}
+.track figure{flex:0 0 min(78vw,640px);scroll-snap-align:start;border-top:1px solid var(--ink);padding-top:26px}
+.track blockquote{font:300 clamp(24px,2.5vw,36px)/1.2 var(--voice);font-style:italic;letter-spacing:-.015em}
+.track figcaption{margin-top:26px;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.track figcaption b{font:500 20px/1 var(--disp);letter-spacing:.1em;text-transform:uppercase}
+.track figcaption span{color:var(--mute);font-size:15px;text-align:right}
+
+/* ---------- guía ---------- */
+.guia{background:var(--gold);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr);gap:var(--pad);padding:clamp(60px,8vw,120px) var(--pad);align-items:center;overflow:hidden}
+.guia .label{color:var(--ink)}
+.guia h2{font-size:clamp(60px,10vw,170px);margin:18px 0 26px}
+.guia h2 em{font-style:normal}
+.guia ul{list-style:none;padding:0;max-width:48ch;margin-bottom:34px}
+.guia li{border-top:1px solid rgba(32,31,15,.35);padding:11px 0}
+.guia .btn:hover{background:var(--paper)}
+.espalda{mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(closest-side,#000 78%,transparent);mask-image:radial-gradient(closest-side,#000 78%,transparent);width:min(100%,520px);margin:-6% auto -14%;justify-self:center}
+.banda{height:min(46vw,560px);overflow:hidden}
+.banda img{width:100%;height:100%;object-fit:cover;object-position:70% 50%}
+
+/* ---------- contacto ---------- */
+.contacto{padding:clamp(70px,9vw,140px) var(--pad) 40px}
+.contacto h2{font-size:clamp(64px,13vw,230px)}
+.contacto h2 em{font-family:var(--voice);font-weight:300;text-transform:none;letter-spacing:-.035em;color:var(--gold);display:block;line-height:1;margin-top:.04em}
+.c-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:var(--pad);margin-top:60px}
+.c-grid .big{display:block;font:200 clamp(56px,7.4vw,120px)/.9 var(--disp);letter-spacing:.01em;margin-bottom:26px}
+.c-grid .big:hover{color:var(--gold)}
+.c-grid address{font-style:normal;color:#cfc9b6;line-height:1.7}
+.c-grid address a{border-bottom:1px solid rgba(239,233,219,.4)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:26px 28px}
+form label{display:block;font:500 13px/1 var(--disp);letter-spacing:.18em;text-transform:uppercase;color:var(--mute-ink)}
+form .full{grid-column:1/-1}
+input,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(239,233,219,.4);color:var(--bone);font:400 19px/1.4 var(--text);padding:12px 0 10px;border-radius:0;outline:0}
+input:focus,textarea:focus{border-color:var(--gold)}
+textarea{resize:vertical;min-height:90px}
+form .btn{justify-self:start}
+footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:90px;padding-top:22px;border-top:1px solid rgba(239,233,219,.22);font-size:14px;color:var(--mute-ink)}
+footer a:hover{color:var(--bone)}
+footer{align-items:flex-end}
+.f-logo img{height:64px;width:auto;margin-bottom:14px}
+
+/* ---------- columna (nav lateral) ---------- */
+.col{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:7px;align-items:flex-end;mix-blend-mode:difference}
+.col a{display:block;height:9px;border-radius:5px;background:#8d8a78;transition:width .3s,background .3s}
+.col a.on{background:#F0AF00;mix-blend-mode:normal}
+.col a:hover{background:#fff}
+
+/* ---------- movimiento ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.hero-line path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s .35s cubic-bezier(.6,.05,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero h1 span{animation:up 1s cubic-bezier(.2,.7,.2,1) both}
+.hero h1 span:nth-child(2){animation-delay:.09s}.hero h1 span:nth-child(3){animation-delay:.18s}
+@keyframes up{from{opacity:0;transform:translateY(.25em)}}
+html.static{--H:900px}
+html.static .rv{opacity:1;transform:none;transition:none}
+html.static .hero-line path,html.static .hero h1 span{animation:none;stroke-dashoffset:0}
+html.static .col{display:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .hero-line path,.hero h1 span{animation:none;stroke-dashoffset:0}
+}
+
+/* ---------- móvil ---------- */
+@media (max-width:860px){
+  nav a:not(.btn){display:none}
+  header img{height:46px}
+  .hero{padding-top:96px}
+  .hero-photo{position:relative;right:auto;bottom:auto;height:auto;width:112%;margin:-16% -6% -14%;order:2}
+  .hero h1{order:1}
+  .hero-foot{order:3;grid-template-columns:1fr;background:var(--paper);margin-inline:calc(var(--pad)*-1);padding-inline:var(--pad);border-top:1px solid var(--ink)}
+  .hero-line{top:22%;height:52%}
+  .para,.mario,.guia,.c-grid,.prog-head{grid-template-columns:1fr}
+  .para-img{min-height:340px;order:-1}
+  .para-list li{flex-wrap:wrap}
+  .para-list li small{margin-left:0;text-align:left;max-width:none;flex-basis:100%;padding-bottom:10px}
+  .diez-grid p{font-size:19px}
+  .row{grid-template-columns:1fr;gap:12px}
+  .row:hover{padding-inline:0;background:none}
+  .dots{justify-content:flex-start}.dots span{text-align:left}
+  .niveles,.extra{grid-template-columns:1fr;gap:34px}
+  .diez-grid{grid-template-columns:1fr}.diez-grid div{padding-block:18px}
+  .mario-img img{transform:none}
+  .mario-img{min-height:460px}
+  .espalda{margin:-4% auto -22%}
+  form{grid-template-columns:1fr}
+  .col{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#inicio" aria-label="Mario Azara · Personal Pilates"><img src="assets/mario-azara-logo.svg" alt="Mario Azara · Personal Pilates" width="300" height="106"></a>
+  <nav>
+    <a href="#programas">Programas</a>
+    <a href="#mario">Mario</a>
+    <a href="#guia">Guía gratis</a>
+    <a class="btn" href="#contacto">Reserva tu clase</a>
+  </nav>
+</header>
+
+<div class="col" aria-hidden="true"></div>
+
+<main>
+<section class="hero" id="inicio" data-v>
+  <svg class="hero-line" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+    <path pathLength="1" d="M-10 350 C 110 262, 250 300, 330 400 C 385 475, 490 540, 590 490 C 690 440, 760 300, 806 122 C 816 72, 852 62, 850 112 C 848 200, 800 322, 842 350 C 882 376, 950 300, 1012 250"/>
+  </svg>
+  <img class="hero-photo" src="assets/mario.png" alt="Mario Azara, director de Personal Pilates Gandía" width="1024" height="1024">
+  <h1 class="disp">
+    <span>Tu calidad</span>
+    <span>de vida es</span>
+    <span class="voice">entrenable.</span>
+  </h1>
+  <div class="hero-foot">
+    <div>
+      <p>Pilates de estudio, con aparatos y en grupos pequeños, adaptado a tus necesidades físicas y a tus objetivos. En Gandía desde 2005.</p>
+      <div class="cta">
+        <a class="btn" href="#contacto">Reserva tu clase</a>
+        <a class="tel" href="tel:+34611430218">611 430 218</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="para" id="para" data-v>
+  <div class="para-list">
+    <p class="label rv">Pilates para…</p>
+    <ul class="disp">
+      <li class="rv">tu <em>salud</em><small>Para ti que quieres, simplemente, sentirte mejor.</small></li>
+      <li class="rv">tu <em>día a día</em><small>Menos esfuerzo para moverte mejor.</small></li>
+      <li class="rv">tu <em>deporte</em><small>El complemento de tu práctica deportiva.</small></li>
+      <li class="rv">tu <em>formación</em><small>Para crecer como profesional del método.</small></li>
+    </ul>
+  </div>
+  <div class="para-img"><img src="assets/generadas/manos-muelle.jpg" alt="Manos sujetando las correas de un aparato de Pilates" loading="lazy"></div>
+</section>
+
+<section class="diez dark" id="diez" data-v>
+  <p class="label rv">Como decía Joseph Pilates</p>
+  <div class="diez-grid">
+    <div class="rv"><b>10</b><p>sesiones y sentirás la diferencia.</p></div>
+    <div class="rv"><b>20</b><p>sesiones y verás la diferencia.</p></div>
+    <div class="rv"><b>30</b><p>y te habrá cambiado el cuerpo.</p></div>
+  </div>
+</section>
+
+<figure class="banda"><img src="assets/generadas/torre-luz.jpg" alt="Estudio de Pilates con reformer y torre de muelles a la luz de la mañana" loading="lazy"></figure>
+
+<section class="prog" id="programas" data-v>
+  <div class="prog-head">
+    <h2 class="disp rv">Tu dosis de movimiento</h2>
+    <p class="rv">Programamos tus clases en un horario fijo y con un grupo lo más homogéneo posible. Tú eliges cuánta atención quieres: cuantos menos alumnos por profesor, más corrección y más rápida la evolución.</p>
+  </div>
+
+  <article class="row rv">
+    <h3>Pilates Estudio 8</h3>
+    <p>Clases con los aparatos originales de Pilates, que te asisten y te desafían en cada ejercicio.</p>
+    <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="p"></i><span>Máximo 8 alumnos</span></div>
+  </article>
+  <article class="row rv">
+    <h3>Pilates Estudio 5</h3>
+    <p>Los mismos aparatos con una atención más personalizada y más control del profesor al corregir.</p>
+    <div class="dots"><i></i><i></i><i></i><i></i><i></i><i class="p"></i><span>Grupo reducido</span></div>
+  </article>
+  <article class="row rv">
+    <h3>Semi-privadas</h3>
+    <p>Dos alumnos. Clases muy personalizadas en las que estás acompañado por el profesor en todo momento.</p>
+    <div class="dots"><i></i><i></i><i class="p"></i><span>2 alumnos</span></div>
+  </article>
+  <article class="row rv">
+    <h3>Privadas</h3>
+    <p>La clase entera gira en torno a ti: los principios del método, adaptados a tus necesidades individuales.</p>
+    <div class="dots"><i></i><i class="p"></i><span>Tú y tu profesor</span></div>
+  </article>
+  <div class="extra">
+    <div class="rv"><p class="label">Para niños</p><h3>Pilates Kids</h3><p>Para que aprendan a moverse mejor y su desarrollo muscular sea equilibrado.</p></div>
+    <div class="rv"><p class="label">Cerebro y músculo</p><h3>Neuromecánica</h3><p>Mejoramos la conexión del cerebro con tu cuerpo para saber qué rutinas y progresiones te convienen.</p></div>
+  </div>
+
+  <p class="label niv-t rv">Sea cual sea el formato, entras en uno de estos tres niveles</p>
+  <div class="niveles">
+    <div class="rv"><p class="label">Si hay dolencias</p><h3>Puesta a punto</h3><p>Para alumnos con molestias que les impiden hacer una clase sin adaptaciones.</p></div>
+    <div class="rv"><p class="label">Para sentirte bien</p><h3>Mantenimiento</h3><p>Clases no muy exigentes físicamente con las que cumples tu objetivo de encontrarte mejor.</p></div>
+    <div class="rv"><p class="label">Para profundizar</p><h3>Pilates entrenamiento</h3><p>El método en su esencia más pura: una educación a través del movimiento, más allá de tu dosis semanal.</p></div>
+  </div>
+</section>
+
+<section class="mario dark" id="mario" data-v>
+  <div class="mario-img"><img src="assets/sobre-mi.jpeg" alt="Mario Azara sentado en el estudio junto a la torre de muelles" loading="lazy"></div>
+  <div class="mario-txt">
+    <p class="label rv">Sobre mí</p>
+    <h2 class="disp rv">Mario Azara</h2>
+    <blockquote class="rv">«A mí Pilates, os digo la verdad, me ha cambiado la vida.»</blockquote>
+    <p class="rv">A los 25 años empezaba con dolores de espalda, y a los 28 no soportaba llevar una mochila más de diez minutos. Probé una clase privada con aparatos y salí encantado: era la gimnasia que necesitaba para sentirme bien.</p>
+    <p class="rv">Por eso aquí cada alumno hace su propio Pilates. Lo llamamos individualización.</p>
+    <div class="tl rv">
+      <div><b>1997</b><span>Empiezo Ciencias de la Actividad Física y del Deporte, tras años de gimnasia artística y vela.</span></div>
+      <div><b>2002</b><span>Barcelona: tres años en el Centre Municipal de Vela y formación como entrenador personal.</span></div>
+      <div><b>2005</b><span>Primera clase en Madrid, formación como instructor del método y nace Personal Pilates en Gandía.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="voces" id="voces" data-v>
+  <p class="label rv">Qué dicen los que ya han venido</p>
+  <div class="track">
+    <figure><blockquote>«Acudí con continuas lumbalgias debidas a una hernia discal. Al cabo de poco tiempo empecé a notar mejoría, menos dolores, más elasticidad y me encontraba más fuerte.»</blockquote><figcaption><b>Javier Escrivá</b><span>Hernia discal L4-L5</span></figcaption></figure>
+    <figure><blockquote>«Seis años después, las clases siguen siendo vitales para mí. Me ayudan a destensar el cuello, a controlar la respiración y me dan un extra de energía.»</blockquote><figcaption><b>Marina Vallés</b><span>Estrés y cervicales</span></figcaption></figure>
+    <figure><blockquote>«Comencé sin mucha fe, aquejado de dolores lumbares. Hoy no concibo mis entrenos sin el Pilates.»</blockquote><figcaption><b>Jose Ortolá</b><span>Complemento deportivo</span></figcaption></figure>
+    <figure><blockquote>«He entendido qué es realmente el Pilates: a sudar en clase, a tener mejor control corporal y a mantener la concentración mientras Mario cuenta algún chiste malo.»</blockquote><figcaption><b>Jose Manuel Gómez</b><span>Control corporal</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="guia" id="guia" data-v>
+  <div>
+    <p class="label rv">Guía gratis</p>
+    <h2 class="disp rv">Entendiendo tu <em>columna</em></h2>
+    <ul class="rv">
+      <li>Reconoce las partes de la columna y cómo se comportan.</li>
+      <li>Mejora tu respiración consciente.</li>
+      <li>Gana control sobre la musculatura abdominal.</li>
+    </ul>
+    <a class="btn rv" href="https://personalpilatesgandia.com/guia-gratis/">Quiero la guía</a>
+  </div>
+  <img class="espalda" src="assets/generadas/espalda-columna.jpg" alt="Persona de espaldas articulando la columna hacia delante" loading="lazy">
+</section>
+
+<section class="contacto dark" id="contacto" data-v>
+  <h2 class="disp rv">Decídete. <em>Da ese paso.</em></h2>
+  <div class="c-grid">
+    <div class="rv">
+      <a class="big" href="tel:+34611430218">611 430 218</a>
+      <address>
+        <a href="mailto:info@personalpilatesgandia.com">info@personalpilatesgandia.com</a><br>
+        C/ Rinconada Leandro Calvo, 2, entresuelo<br>46701 Gandía, Valencia
+      </address>
+    </div>
+    <form class="rv" action="mailto:info@personalpilatesgandia.com" method="post" enctype="text/plain">
+      <label>Nombre<input name="Nombre" autocomplete="name" required></label>
+      <label>Teléfono<input name="Telefono" type="tel" autocomplete="tel"></label>
+      <label class="full">Email<input name="Email" type="email" autocomplete="email" required></label>
+      <label class="full">¿Qué buscas?<textarea name="Mensaje" rows="3"></textarea></label>
+      <button class="btn" type="submit">Enviar</button>
+    </form>
+  </div>
+  <footer>
+    <span class="f-logo"><img src="assets/mario-azara-logo-negativo.svg" alt="Mario Azara · Personal Pilates" width="300" height="106">© Personal Pilates Gandía</span>
+    <span><a href="https://personalpilatesgandia.com/blog/">Blog</a> · <a href="https://personalpilatesgandia.com/aviso-legal/">Aviso legal</a> · <a href="https://personalpilatesgandia.com/politica-de-privacidad/">Privacidad</a> · <a href="https://personalpilatesgandia.com/politica-de-cookies/">Cookies</a></span>
+  </footer>
+</section>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  if(/[?&]static/.test(location.search)) root.classList.add('static');
+
+  // navegación lateral: una vértebra por sección
+  var col=document.querySelector('.col'),secs=[].slice.call(document.querySelectorAll('[data-v]'));
+  secs.forEach(function(sec,i){
+    var a=document.createElement('a');a.href='#'+sec.id;a.style.width=(16+i*3)+'px';col.appendChild(a);
+  });
+  var links=col.children;
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){
+        var k=secs.indexOf(e.target);
+        for(var j=0;j<links.length;j++) links[j].classList.toggle('on',j===k);
+      }});
+    },{rootMargin:'-50% 0px -50% 0px'});
+    secs.forEach(function(sec){ io.observe(sec); });
+    var rv=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rv.unobserve(e.target);} });
+    },{threshold:.12});
+    document.querySelectorAll('.rv').forEach(function(el,i){ el.style.transitionDelay=(i%4*70)+'ms'; rv.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
+  }
+})();
+</script>
+</body>
+</html>
